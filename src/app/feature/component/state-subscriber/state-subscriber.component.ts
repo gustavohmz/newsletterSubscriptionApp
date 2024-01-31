@@ -27,7 +27,6 @@ export class StateSubscriberComponent implements OnInit {
     const email = this.dataEmails?.split('|')[0];
     const category = this.dataEmails?.split('|')[1];
 
-    console.log({ email, category });
     this.newsletterService
       .getSubscriptor(email ?? '', category ?? '')
       .subscribe({
@@ -37,12 +36,9 @@ export class StateSubscriberComponent implements OnInit {
             email,
             category,
           };
-
-          console.log(data);
         },
         error: (error) => {
           this.isSuscriber = false;
-          console.log(error);
         },
       });
   }
@@ -55,12 +51,10 @@ export class StateSubscriberComponent implements OnInit {
       )
       .subscribe({
         next: (data) => {
-          console.log(data);
           this.router.navigate(['/']);
         },
         error: (error) => {
           this.isSuscriber = false;
-          console.log(error);
         },
       });
   }

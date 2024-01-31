@@ -34,18 +34,15 @@ export class HomeComponent {
 
   sendData1(): void {
     this.data1.get('email')?.patchValue(this.value);
-    console.log('is valid?', this.data1.valid);
+
     if (this.data1.valid) {
       this.newletterService.createSubscriptor(this.value, 'promo').subscribe({
         next: (data) => {
           this.message1 = data.message;
-          console.log('Respuesta de creacion 1: ', data);
         },
         error: (err) => {
           const { error } = err;
           this.message1 = error.error;
-
-          console.log(err);
         },
       });
     }
@@ -53,20 +50,17 @@ export class HomeComponent {
 
   sendData2(): void {
     this.data2.get('email')?.patchValue(this.value2);
-    console.log('is valid? 2', this.data2.valid);
+
     if (this.data2.valid) {
       this.newletterService
         .createSubscriptor(this.value2, 'noticias')
         .subscribe({
           next: (data) => {
             this.message2 = data.message;
-            console.log('Respuesta de creacion 1: ', data);
           },
           error: (err) => {
             const { error } = err;
             this.message2 = error.error;
-
-            console.log(err);
           },
         });
     }
