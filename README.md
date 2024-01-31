@@ -6,5 +6,6 @@ Este proyecto front-end, desarrollado con Angular CLI, proporciona una interfaz 
 
 Este proyecto incluye un archivo Dockerfile para facilitar la creación de un contenedor.
 ```bash
-docker build -t newsletter-subscription-frontend .
-docker run -p 4200:4200 --env-file .env newsletter-subscription-frontend
+docker build -t newsletter-front .
+docker run -d -p 4202:80 newsletter-front
+```
